@@ -13,13 +13,16 @@
     - no optimizations have been performed so far
     - models come directly from the MLPerf Tiny Repository, and the benchmark files adapted for RISC-V and tflite-micro are standard
 
+- **For more info about the board check this [LINK](https://www.kendryte.com/k230/en/dev/02_applications/tutorials/K230_Practical_Basics_hello_world.html#environment-preparation)**
+
 **Folder structure for my current workflow:**
 ```
+sysimage-sdcard: linux(small core)+rt(big core) to burn on the sd card and use for the board
+
 k230_sdk
-	|-- ...
-	|-- toolchain
-			|-- riscv64-linux-musleabi_for_x86_64-pc-linux-gnu
-			|-- Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.0
+	|-- /src/big/mpp/userapps/sample/linker_scripts/riscv64/link.lds
+    |-- ...
+
 tflite-micro
 	|-- ...
 	|-- tensorflow
@@ -51,6 +54,10 @@ tflite-micro
 						    |-- riscv_isa_musl_rv64imafdcv_makefile.inc
 						    |-- ...
 toolchain
+    |-- riscv64-linux-musleabi_for_x86_64-pc-linux-gnu
+        |-- bin
+            |-- riscv64-unknown-linux-elf-gcc
+            |-- ...
 	|-- riscv_elf
 			|-- bin
 				|-- riscv64-unknown-linux-elf-gcc
