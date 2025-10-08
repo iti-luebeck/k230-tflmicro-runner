@@ -1,1 +1,5 @@
 
+[submodule "tflite-micro"]
+	path = tflite-micro
+	url = https://gitlab.iti.uni-luebeck.de/mahmoudi/tflite-micro.git
+	branch = feature/rvv_optimized
