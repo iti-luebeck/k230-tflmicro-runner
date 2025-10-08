@@ -1,4 +1,1 @@
-[submodule "tflite-micro-riscv"]
-	path = tflite-micro-riscv
-	url = https://gitlab.iti.uni-luebeck.de/mahmoudi/tflite-micro-riscv
-	branch = feature/rvv_optimized
+
