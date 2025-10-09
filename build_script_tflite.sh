@@ -11,16 +11,12 @@ tar -xjf riscv64-unknown-linux-musl-rv64imafdcv-lp64d-20230222.tar.bz2
 
 mkdir -p riscv64-musl-ubuntu-22.04-gcc
 wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2025.09.28/riscv64-musl-ubuntu-22.04-gcc-nightly-2025.09.28-nightly.tar.xz 
-tar -xjf riscv64-musl-ubuntu-22.04-gcc-nightly-2025.09.28-nightly.tar.xz -C riscv64-musl-ubuntu-22.04-gcc
+tar -xJf riscv64-musl-ubuntu-22.04-gcc-nightly-2025.09.28-nightly.tar.xz -C riscv64-musl-ubuntu-22.04-gcc
 
 mkdir -p riscv64-elf-ubuntu-22.04-gcc
 wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2025.09.28/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.09.28-nightly.tar.xz
-tar -xjf riscv64-elf-ubuntu-22.04-gcc-nightly-2025.09.28-nightly.tar.xz -C riscv64-elf-ubuntu-22.04-gcc
+tar -xJf riscv64-elf-ubuntu-22.04-gcc-nightly-2025.09.28-nightly.tar.xz -C riscv64-elf-ubuntu-22.04-gcc
 cd - || exit
-
-# change the name of the tflite-micro-riscv to tflite-micro
-mv tflite-micro-riscv tflite-micro
-
 
 # display model selection menu
 echo "Select the model you want to compile:"
