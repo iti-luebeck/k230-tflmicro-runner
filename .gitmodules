@@ -3,3 +3,6 @@
 	path = tflite-micro
 	url = https://gitlab.iti.uni-luebeck.de/mahmoudi/tflite-micro.git
 	branch = feature/rvv_optimized
+[submodule "k230_sdk"]
+	path = k230_sdk
+	url = https://github.com/kendryte/k230_sdk.git
