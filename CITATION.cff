@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or its results, please cite the
+  conference paper below.
+title: "K230 TFLM Runner: RVV-accelerated TinyML benchmarks on the Kendryte K230"
+abstract: >-
+  Build system, toolchain setup, and MLPerf Tiny benchmark harness for running
+  TensorFlow Lite Micro on the Kendryte K230, with hand-written RISC-V Vector
+  (RVV) kernels. Reproduction artifact for the TELFOR 2025 paper "TinyML
+  Unleashed".
+type: software
+license: Apache-2.0
+repository-code: "https://gitlab.iti.uni-luebeck.de/mahmoudi/k230-tflmicro-runner"
+keywords:
+  - TinyML
+  - RISC-V
+  - RVV
+  - vector extension
+  - TensorFlow Lite Micro
+  - Kendryte K230
+  - MLPerf Tiny
+authors:
+  - family-names: Mahmoudi
+    given-names: Ahmed
+  - family-names: Horn
+    given-names: Christopher
+  - family-names: Mulhem
+    given-names: Saleh
+  - family-names: Buchty
+    given-names: Rainer
+  - family-names: Berekovic
+    given-names: Mladen
+  - family-names: Meyer
+    given-names: Rolf
+preferred-citation:
+  type: conference-paper
+  title: >-
+    TinyML Unleashed: Accelerating TensorFlow Lite Micro Kernels with
+    RISC-V Vector Extension
+  year: 2025
+  collection-title: "2025 33rd Telecommunications Forum (TELFOR)"
+  conference:
+    name: "33rd Telecommunications Forum (TELFOR)"
+  doi: "10.1109/TELFOR67910.2025.11314213"
+  start: 1
+  end: 4
+  authors:
+    - family-names: Mahmoudi
+      given-names: Ahmed
+    - family-names: Horn
+      given-names: Christopher
+    - family-names: Mulhem
+      given-names: Saleh
+    - family-names: Buchty
+      given-names: Rainer
+    - family-names: Berekovic
+      given-names: Mladen
+    - family-names: Meyer
+      given-names: Rolf

@@ -1,0 +1,17 @@
+K230 TFLM Runner
+Copyright 2025 Ahmed Mahmoudi, Christopher Horn, Saleh Mulhem,
+Rainer Buchty, Mladen Berekovic, Rolf Meyer
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+This product includes software developed as part of the TensorFlow Lite
+Micro project (https://github.com/tensorflow/tflite-micro), Copyright The
+TensorFlow Authors, licensed under the Apache License 2.0, included here
+as the `tflite-micro` submodule.
+
+The `k230_sdk` submodule is distributed by Canaan Creative under its own
+license terms and is not covered by this license.
