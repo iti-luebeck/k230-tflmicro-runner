@@ -1,7 +1,7 @@
 
 [submodule "tflite-micro"]
 	path = tflite-micro
-	url = https://gitlab.iti.uni-luebeck.de/mahmoudi/tflite-micro.git
+	url = https://github.com/iti-luebeck/tflite-micro-rvv.git
 	branch = feature/rvv_optimized
 [submodule "k230_sdk"]
 	path = k230_sdk
