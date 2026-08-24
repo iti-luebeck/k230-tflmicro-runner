@@ -1,0 +1,10 @@
+# Bootable SD card image - build from the k230_sdk submodule, do not commit
+sysimage-sdcard.img
+*.img
+
+# Build output
+*.elf
+*.o
+
+# macOS
+.DS_Store
