@@ -12,8 +12,9 @@ This is the reproduction artifact for:
 > 2025 33rd Telecommunications Forum (TELFOR), 2025, pp. 1–4.
 > DOI: [10.1109/TELFOR67910.2025.11314213](https://doi.org/10.1109/TELFOR67910.2025.11314213)
 
-The RVV kernels themselves live in the `tflite-micro` submodule. They are generic
-`rv64imafdcv` code and are **not** K230-specific — this repository is the K230
+The RVV kernels themselves live in the
+[`tflite-micro-rvv`](https://github.com/iti-luebeck/tflite-micro-rvv) submodule.
+They are generic `rv64imafdcv` code and are **not** K230-specific — this repository is the K230
 instantiation plus the measurement harness.
 
 ## Results
@@ -221,11 +222,19 @@ vector instructions (`vmv.*`, `vadd.vv`, `vsub.vv`).
 
 ## License
 
-Licensed under the Apache License 2.0 — see [LICENSE](LICENSE).
+Licensed under the Apache License 2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
-The `tflite-micro` submodule is a fork of
-[tensorflow/tflite-micro](https://github.com/tensorflow/tflite-micro), also Apache 2.0.
-The `k230_sdk` submodule is distributed by Canaan under its own terms.
+Bundled components keep their own licences:
+
+| Component | Licence |
+|---|---|
+| [`tflite-micro`](https://github.com/iti-luebeck/tflite-micro-rvv) (submodule) — fork of [tensorflow/tflite-micro](https://github.com/tensorflow/tflite-micro) | Apache 2.0 |
+| [`k230_sdk`](https://github.com/kendryte/k230_sdk) (submodule) — Canaan Creative | BSD 2-Clause |
+
+Note that images **built from** the K230 SDK bundle further third-party
+components under their own terms, including the Linux kernel and U-Boot
+(GPL-2.0). No such image is redistributed here — see
+[SD card image](#sd-card-image) for how to build one.
 
 ## Citation
 
