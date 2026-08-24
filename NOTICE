@@ -13,5 +13,7 @@ Micro project (https://github.com/tensorflow/tflite-micro), Copyright The
 TensorFlow Authors, licensed under the Apache License 2.0, included here
 as the `tflite-micro` submodule.
 
-The `k230_sdk` submodule is distributed by Canaan Creative under its own
-license terms and is not covered by this license.
+The `k230_sdk` submodule is distributed by Canaan Creative under the
+BSD 2-Clause "Simplified" License. Note that images built from that SDK
+bundle third-party components under their own terms, including the Linux
+kernel and U-Boot (GPL-2.0); no such image is redistributed here.
