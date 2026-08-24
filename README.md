@@ -18,14 +18,40 @@ instantiation plus the measurement harness.
 
 ## Results
 
-Measured on the K230 big core at 1.6 GHz, 50 inferences after 10 warmup runs.
+Measured on the K230 big core at 1.6 GHz. Three build configurations are compared:
 
-| Benchmark | Model | Cycles/Infer (scalar) | Cycles/Infer (vector) | Throughput IPS (scalar → vector) | Speedup |
-|---|---|---:|---:|---|---:|
-| Image Classification | ResNet (CIFAR-10) | 943 463 211 | 28 604 250 | 1.70 → 55.91 | **33.0×** |
-| Person Detection | VWW (MobileNet) | 618 405 260 | 77 988 187 | 2.59 → 20.50 | **7.9×** |
-| Keyword Spotting | DS-CNN (Speech Commands) | 217 087 347 | 26 857 849 | 7.37 → 59.56 | **8.1×** |
-| Anomaly Detection | Deep AutoEncoder (ToyADMOS) | 3 037 413 | 713 008 | 517.7 → 2100.2 | **4.3×** |
+- **Scalar** — reference TFLM kernels, built for `rv64imafdc` (no vector extension)
+- **Auto** — same sources built for `rv64imafdcv`, relying on compiler auto-vectorization
+- **Manual** — the hand-written RVV kernels in the `tflite-micro` submodule
+
+| Model | Implementation | CPI | Latency (ms) | Throughput (IPS) | Speed-up |
+|---|---|---:|---:|---:|---:|
+| **ResNet** (Image Classification) | Scalar | 1.27 | 484.5 | 2.06 <sup>†</sup> | 1× |
+| | Auto | 1.11 | 423.8 | 2.36 | 1.14× |
+| | **Manual** | 2.01 | **16.9** | **59.21** | **28.69×** |
+| **FC-AutoEncoder** (Anomaly Detection) | Scalar | 1.21 | 1.93 | 517.76 | 1× |
+| | Auto | 0.97 | 0.59 | 1680 | 3.24× |
+| | **Manual** | 2.30 | **0.47** | **2133** | **4.12×** |
+| **MobileNetV1** (Person Detection) | Scalar | 1.25 | 321.5 | 3.11 | 1× |
+| | Auto | 1.09 | 283.0 | 3.53 | 1.14× |
+| | **Manual** | 1.18 | **48.5** | **20.61** | **6.62×** |
+| **DS-CNN** (Keyword Spotting) | Scalar | 1.23 | 112.9 | 8.92 | 1× |
+| | Auto | 1.09 | 100.8 | 9.92 | 1.11× |
+| | **Manual** | 1.15 | **16.6** | **60.5** | **6.80×** |
+
+Hand-written RVV kernels outperform compiler auto-vectorization in every case, by
+between 1.3× (FC-AutoEncoder) and 25× (ResNet). Auto-vectorization alone yields
+only 1.11×–1.14× on the convolutional models.
+
+CPI rises for the manual kernels on ResNet and FC-AutoEncoder because vector
+instructions retire more slowly while doing far more work per instruction —
+latency and throughput are the meaningful comparison, not CPI.
+
+<sup>†</sup> **Corrected.** The published table lists 1.21 IPS here, which is
+inconsistent with the same row's latency of 484.5 ms — the measurement harness
+derives throughput as `1e6 / latency_us`, so 484.5 ms necessarily gives 2.06 IPS.
+The ResNet speed-ups are recomputed from the corrected value (published: 1.15×
+and 28.75×; both were ~0.3% high). All other figures are as published.
 
 ## Repository layout
 
